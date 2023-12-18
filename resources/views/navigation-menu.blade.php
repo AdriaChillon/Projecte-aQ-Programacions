@@ -21,9 +21,51 @@
                     <x-nav-link href="{{ route('ufs.index') }}" :active="request()->routeIs('ufs*')">
                         {{ __('UFs') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('ras.index') }}" :active="request()->routeIs('ras*')">
-                        {{ __('RAs') }}
-                    </x-nav-link>
+                    <div class="dropdown">
+                        <x-nav-link href="{{ route('ras.index') }}" :active="request()->routeIs('ras*')">
+                            {{ __('RAs') }}
+                        </x-nav-link>
+                    
+                        <div class="dropdown-content">
+                            <x-nav-link href="{{ route('continguts.index') }}" :active="request()->routeIs('contingut*')">
+                                {{ __('Continguts') }}
+                            </x-nav-link><br>
+
+                            <x-nav-link href="{{ route('criteris.index') }}" :active="request()->routeIs('criteri*')">
+                                {{ __('Criteris') }}
+                            </x-nav-link><br>
+
+                            <x-nav-link href="{{ route('programacions.index') }}" :active="request()->routeIs('programacion*')">
+                                {{ __('Programacions') }}
+                            </x-nav-link><br>
+                           
+                            <x-nav-link href="{{ route('activitats.index') }}" :active="request()->routeIs('activitat*')">
+                                {{ __('Activitats') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    
+                    <style>
+                        .dropdown {
+                            position: relative;
+                            margin: auto;
+                            padding: auto;
+                            display: inline-block;
+                        }
+                    
+                        .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            background-color: #f9f9f9;
+                            min-width: 160px;
+                            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                            z-index: 1;
+                        }
+                    
+                        .dropdown:hover .dropdown-content {
+                            display: block;
+                        }
+                    </style>
                 </div>
             </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contingut;
+use App\Models\Ra;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,9 @@ class ContingutController extends Controller
     public function create()
     {
         $contingut = new Contingut();
-        return view('contingut.create', compact('contingut'));
+        $raId = Ra::pluck('id');
+        $raName = Ra::pluck('name');
+        return view('contingut.create', compact('contingut','raId','raName'));
     }
 
     /**
@@ -47,8 +50,7 @@ class ContingutController extends Controller
 
         $contingut = Contingut::create($request->all());
 
-        return redirect()->route('continguts.index')
-            ->with('success', 'Contingut created successfully.');
+        return redirect()->route('continguts.index')->with('success', 'Contingut created successfully');
     }
 
     /**
@@ -73,8 +75,9 @@ class ContingutController extends Controller
     public function edit($id)
     {
         $contingut = Contingut::find($id);
-
-        return view('contingut.edit', compact('contingut'));
+        $raId = Ra::pluck('id');
+        $raName = Ra::pluck('name');
+        return view('contingut.edit', compact('contingut', 'raId','raName'));
     }
 
     /**
@@ -90,8 +93,7 @@ class ContingutController extends Controller
 
         $contingut->update($request->all());
 
-        return redirect()->route('continguts.index')
-            ->with('success', 'Contingut updated successfully');
+        return redirect()->route('continguts.index')->with('success', 'Contingut updated successfully');
     }
 
     /**
@@ -103,7 +105,6 @@ class ContingutController extends Controller
     {
         $contingut = Contingut::find($id)->delete();
 
-        return redirect()->route('continguts.index')
-            ->with('success', 'Contingut deleted successfully');
+        return redirect()->route('continguts.index')->with('success', 'Contingut deleted successfully');
     }
 }

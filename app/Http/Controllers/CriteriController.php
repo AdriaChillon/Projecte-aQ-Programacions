@@ -32,6 +32,7 @@ class CriteriController extends Controller
     public function create()
     {
         $criteri = new Criteri();
+        
         return view('criteri.create', compact('criteri'));
     }
 
@@ -47,8 +48,7 @@ class CriteriController extends Controller
 
         $criteri = Criteri::create($request->all());
 
-        return redirect()->route('criteris.index')
-            ->with('success', 'Criteri created successfully.');
+        return redirect()->route('criteris.index')->with('success', 'Criteri created successfully');
     }
 
     /**
@@ -90,8 +90,7 @@ class CriteriController extends Controller
 
         $criteri->update($request->all());
 
-        return redirect()->route('criteris.index')
-            ->with('success', 'Criteri updated successfully');
+        return redirect()->route('criteris.index')->with('success', 'Criteri updated successfully');
     }
 
     /**
@@ -103,7 +102,6 @@ class CriteriController extends Controller
     {
         $criteri = Criteri::find($id)->delete();
 
-        return redirect()->route('criteris.index')
-            ->with('success', 'Criteri deleted successfully');
+        return redirect()->route('criteris.index')->with('success', 'Criteri deleted successfully');
     }
 }

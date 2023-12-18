@@ -7,9 +7,9 @@
             {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('uf_id') }}
-            {{ Form::text('uf_id', $ra->uf_id, ['class' => 'form-control' . ($errors->has('uf_id') ? ' is-invalid' : ''), 'placeholder' => 'Uf Id']) }}
-            {!! $errors->first('uf_id', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('uf') }}
+            {{ Form::select('uf_id', $ufId->combine($ufName), $ra->uf_id, ['class' => 'form-control' . ($errors->has('uf_id') ? ' is-invalid' : '')]) }}
+            {!! $errors->first('ra_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>

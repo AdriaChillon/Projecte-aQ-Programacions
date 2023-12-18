@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('descripcio');
+            $table->integer('hours');
             $table->foreignId('programacion_id')->constrained();
             $table->foreignId('uf_id')->constrained();
             $table->foreignId('ra_ids')->constrained();

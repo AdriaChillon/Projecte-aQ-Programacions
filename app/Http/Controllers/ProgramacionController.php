@@ -47,8 +47,7 @@ class ProgramacionController extends Controller
 
         $programacion = Programacion::create($request->all());
 
-        return redirect()->route('programacions.index')
-            ->with('success', 'Programacion created successfully.');
+        return redirect()->route('programacions.index')->with('success', 'Programació created successfully');
     }
 
     /**
@@ -90,8 +89,7 @@ class ProgramacionController extends Controller
 
         $programacion->update($request->all());
 
-        return redirect()->route('programacions.index')
-            ->with('success', 'Programacion updated successfully');
+        return redirect()->route('programacions.index')->with('success', 'Programació updated successfully');
     }
 
     /**
@@ -103,7 +101,6 @@ class ProgramacionController extends Controller
     {
         $programacion = Programacion::find($id)->delete();
 
-        return redirect()->route('programacions.index')
-            ->with('success', 'Programacion deleted successfully');
+        return redirect()->route('programacions.index')->with('success', 'Programació deleted successfully');
     }
 }

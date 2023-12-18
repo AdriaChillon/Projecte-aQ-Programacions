@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ra;
+use App\Models\Uf;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,9 @@ class RaController extends Controller
     public function create()
     {
         $ra = new Ra();
-        return view('ra.create', compact('ra'));
+        $ufId = Uf::pluck('id');
+        $ufName = Uf::pluck('name');
+        return view('ra.create', compact('ra','ufId','ufName'));
     }
 
     /**
@@ -47,8 +50,7 @@ class RaController extends Controller
 
         $ra = Ra::create($request->all());
 
-        return redirect()->route('ras.index')
-            ->with('success', 'Ra created successfully.');
+        return redirect()->route('ras.index')->with('success', 'Ra created successfully.');
     }
 
     /**
@@ -73,8 +75,9 @@ class RaController extends Controller
     public function edit($id)
     {
         $ra = Ra::find($id);
-
-        return view('ra.edit', compact('ra'));
+        $ufId = Uf::pluck('id');
+        $ufName = Uf::pluck('name');
+        return view('ra.edit', compact('ra','ufId','ufName'));
     }
 
     /**
@@ -90,8 +93,7 @@ class RaController extends Controller
 
         $ra->update($request->all());
 
-        return redirect()->route('ras.index')
-            ->with('success', 'Ra updated successfully');
+        return redirect()->route('ras.index')->with('success', 'Ra updated successfully');
     }
 
     /**
@@ -103,7 +105,6 @@ class RaController extends Controller
     {
         $ra = Ra::find($id)->delete();
 
-        return redirect()->route('ras.index')
-            ->with('success', 'Ra deleted successfully');
+        return redirect()->route('ras.index')->with('success', 'Ra deleted successfully');
     }
 }

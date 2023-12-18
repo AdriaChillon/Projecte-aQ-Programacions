@@ -7,8 +7,8 @@
             {!! $errors->first('contingut', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('ra_id') }}
-            {{ Form::text('ra_id', $contingut->ra_id, ['class' => 'form-control' . ($errors->has('ra_id') ? ' is-invalid' : ''), 'placeholder' => 'Ra Id']) }}
+            {{ Form::label('ra_id', 'Resultat d\'aprenentatge:') }}
+            {{ Form::select('ra_id', $raId->combine($raName), $contingut->ra_id, ['class' => 'form-control' . ($errors->has('ra_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('ra_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
