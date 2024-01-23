@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $id
  * @property $any
+ * @property $descripcio
  * @property $modul_id
  * @property $user_id
  * @property $created_at
@@ -25,6 +26,7 @@ class Programacion extends Model
     
     static $rules = [
 		'any' => 'required',
+		'descripcio' => 'required',
 		'modul_id' => 'required',
 		'user_id' => 'required',
     ];

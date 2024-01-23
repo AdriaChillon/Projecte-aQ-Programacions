@@ -29,8 +29,8 @@
                             {{ $uf->hours }}
                         </div>
                         <div class="form-group">
-                            <strong>Modul Id:</strong>
-                            {{ $uf->modul_id }}
+                            <strong>Modul:</strong>
+                            {{ $uf->modul->name }}
                         </div>
 
                     </div>

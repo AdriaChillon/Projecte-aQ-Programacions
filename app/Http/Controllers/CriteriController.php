@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Criteri;
 use Illuminate\Http\Request;
+use App\Models\Ra;
 
 /**
  * Class CriteriController
@@ -32,8 +33,9 @@ class CriteriController extends Controller
     public function create()
     {
         $criteri = new Criteri();
-        
-        return view('criteri.create', compact('criteri'));
+        $raId = Ra::pluck('id');
+        $raName = Ra::pluck('name');
+        return view('criteri.create', compact('criteri','raId','raName'));
     }
 
     /**
@@ -60,7 +62,6 @@ class CriteriController extends Controller
     public function show($id)
     {
         $criteri = Criteri::find($id);
-
         return view('criteri.show', compact('criteri'));
     }
 
@@ -73,8 +74,9 @@ class CriteriController extends Controller
     public function edit($id)
     {
         $criteri = Criteri::find($id);
-
-        return view('criteri.edit', compact('criteri'));
+        $raId = Ra::pluck('id');
+        $raName = Ra::pluck('name');
+        return view('criteri.edit', compact('criteri','raId','raName'));
     }
 
     /**

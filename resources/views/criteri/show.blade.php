@@ -25,8 +25,16 @@
                             {{ $criteri->criteri }}
                         </div>
                         <div class="form-group">
-                            <strong>Ra Id:</strong>
-                            {{ $criteri->ra_id }}
+                            <strong>Resultat d'aprenentatge:</strong>
+                            {{ $criteri->ra->name}}
+                        </div>
+                        <div class="form-group">
+                            <strong>Unitat Formativa:</strong>
+                            {{ $criteri->ra->uf->name }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Modul:</strong>
+                            {{ $criteri->ra->uf->modul->name }}
                         </div>
 
                     </div>

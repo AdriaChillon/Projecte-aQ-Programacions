@@ -37,7 +37,8 @@
                                         <th>No</th>
                                         
 										<th>Name</th>
-										<th>Uf Id</th>
+										<th>Unitat Formativa</th>
+										<th>Módul</th>
 
                                         <th></th>
                                     </tr>
@@ -48,7 +49,8 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $ra->name }}</td>
-											<td>{{ $ra->uf_id }}</td>
+											<td>{{ $ra->uf->name}}</td>
+											<td>{{ $ra->uf->modul->name}}</td>
 
                                             <td>
                                                 <form action="{{ route('ras.destroy',$ra->id) }}" method="POST">

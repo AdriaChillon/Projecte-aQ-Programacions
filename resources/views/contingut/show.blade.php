@@ -25,8 +25,16 @@
                             {{ $contingut->contingut }}
                         </div>
                         <div class="form-group">
-                            <strong>Ra Id:</strong>
-                            {{ $contingut->ra_id }}
+                            <strong>Resultat d'aprenentatge:</strong>
+                            {{ $contingut->ra->name }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Unitat Formativa:</strong>
+                            {{ $contingut->ra->uf->name }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Modul:</strong>
+                            {{ $contingut->ra->uf->modul->name }}
                         </div>
 
                     </div>

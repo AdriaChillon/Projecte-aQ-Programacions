@@ -25,8 +25,12 @@
                             {{ $ra->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Uf Id:</strong>
-                            {{ $ra->uf_id }}
+                            <strong>Unitat Formativa:</strong>
+                            {{ $ra->uf->name}}
+                        </div>
+                        <div class="form-group">
+                            <strong>Modul:</strong>
+                            {{ $ra->uf->modul->name }}
                         </div>
 
                     </div>

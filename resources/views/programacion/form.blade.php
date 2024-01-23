@@ -3,8 +3,13 @@
         
         <div class="form-group">
             {{ Form::label('any') }}
-            {{ Form::text('any', $programacion->any, ['class' => 'form-control' . ($errors->has('any') ? ' is-invalid' : ''), 'placeholder' => 'Any']) }}
+            {{ Form::date('any', $programacion->any, ['class' => 'form-control' . ($errors->has('any') ? ' is-invalid' : ''), 'placeholder' => 'Any']) }}
             {!! $errors->first('any', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('Descripció') }}
+            {{ Form::text('descripcio', $programacion->descripcio, ['class' => 'form-control' . ($errors->has('any') ? ' is-invalid' : ''), 'placeholder' => 'Descripció']) }}
+            {!! $errors->first('descripcio', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('modul_id') }}

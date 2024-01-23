@@ -62,7 +62,6 @@ class ContingutController extends Controller
     public function show($id)
     {
         $contingut = Contingut::find($id);
-
         return view('contingut.show', compact('contingut'));
     }
 

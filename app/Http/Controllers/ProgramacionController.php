@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Programacion;
 use Illuminate\Http\Request;
+use App\Models\Ra;
 
 /**
  * Class ProgramacionController
@@ -32,7 +33,9 @@ class ProgramacionController extends Controller
     public function create()
     {
         $programacion = new Programacion();
-        return view('programacion.create', compact('programacion'));
+        $raId = Ra::pluck('id');
+        $raName = Ra::pluck('name');
+        return view('programacion.create', compact('programacion','raId','raName'));
     }
 
     /**
@@ -72,8 +75,9 @@ class ProgramacionController extends Controller
     public function edit($id)
     {
         $programacion = Programacion::find($id);
-
-        return view('programacion.edit', compact('programacion'));
+        $raId = Ra::pluck('id');
+        $raName = Ra::pluck('name');
+        return view('programacion.edit', compact('programacion','raId','raName'));
     }
 
     /**

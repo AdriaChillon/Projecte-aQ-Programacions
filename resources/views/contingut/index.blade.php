@@ -37,7 +37,9 @@
                                         <th>No</th>
                                         
 										<th>Contingut</th>
-										<th>Ra Id</th>
+										<th>Resultat d'aprenentatge</th>
+										<th>Unitat Formativa</th>
+										<th>Módul</th>
 
                                         <th></th>
                                     </tr>
@@ -48,7 +50,9 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $contingut->contingut }}</td>
-											<td>{{ $contingut->ra_id }}</td>
+											<td>{{ $contingut->ra->name }}</td>
+											<td>{{ $contingut->ra->uf->name }}</td>
+											<td>{{ $contingut->ra->uf->modul->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('continguts.destroy',$contingut->id) }}" method="POST">
